@@ -107,15 +107,6 @@ var Iterators = {
   // - devowel("Howdy") should return "Hwdy",
   // - devowel("Phone's ringing, dude.") should return "Phn's rngng, dd.".
   devowel: function (text) {
-    var textSplit = text.split();                 
-    var removeVowel = textSplit.toString()        
-    removeVowel = removeVowel.replace(/a/gi, "")      //Couldn't figure out how to refactor down to a filter iterator
-    removeVowel = removeVowel.replace(/e/gi, "")
-    removeVowel = removeVowel.replace(/i/gi, "")
-    removeVowel = removeVowel.replace(/o/gi, "")
-    removeVowel = removeVowel.replace(/u/gi, "")
-    return removeVowel;
-  }
 };
 
 module.exports = Iterators;
