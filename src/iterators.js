@@ -5,6 +5,10 @@ var Iterators = {
   // - tripler([7,50,4]) should return [21,150,12].
   // Use `map` to accomplish this.
   tripler: function (numbers) {
+    var triple = numbers.map(function (num) {
+      return num * 3;
+    });
+    return triple;
   },
 
   // perfectSquares() should take an array of numbers as a parameter
@@ -16,6 +20,9 @@ var Iterators = {
   // - perfectSquares([1,4,9]) should return [1,4,9].
   // Use `filter` to accomplish this.
   perfectSquares: function (numbers) {
+    return numbers.filter(function(numbers){
+      return Math.sqrt(numbers) % 1 === 0 ;
+    });
   },
 
   // product() should accept an array of numbers as a parameter
@@ -26,6 +33,11 @@ var Iterators = {
   // - product([100,200,300]) should return 6000000.
   // Use `reduce` to accomplish this.
   product: function (numbers) {
+    function multiplyTogether(a, b){
+      return a * b;
+    }
+    var reduce = numbers.reduce(multiplyTogether);
+    return reduce;
   },
 
   // hasInstructor() accepts an array of names and should return true
@@ -39,6 +51,10 @@ var Iterators = {
   // Use `some` to accomplish this.
   // Hint: see `toLowerCase`, it could be useful.
   hasInstructor: function (names) {
+      return names.some(function(names){
+        x = "tim"
+        return names.toLowerCase() === x;
+      })
   },
 
   // allSamePlayer() should accept an array of players, represented by
@@ -53,6 +69,15 @@ var Iterators = {
   // - allSamePlayer(["_","_","_"]) should return false.
   // Use `every` to accomplish this.
   allSamePlayer: function (players) {
+      return players.every(function(x){
+        if ((players[0] === players[1]) && (players[0]===players[2]) && ((x==="X") || (x==="O"))) {
+        return true;
+      } 
+      else {
+        return false;
+      }
+  });
+
   },
 
   // This is NOT an iterator method, but it's interesting
@@ -82,6 +107,14 @@ var Iterators = {
   // - devowel("Howdy") should return "Hwdy",
   // - devowel("Phone's ringing, dude.") should return "Phn's rngng, dd.".
   devowel: function (text) {
+    var textSplit = text.split();                 
+    var removeVowel = textSplit.toString()        
+    removeVowel = removeVowel.replace(/a/gi, "")      //Couldn't figure out how to refactor down to a filter iterator
+    removeVowel = removeVowel.replace(/e/gi, "")
+    removeVowel = removeVowel.replace(/i/gi, "")
+    removeVowel = removeVowel.replace(/o/gi, "")
+    removeVowel = removeVowel.replace(/u/gi, "")
+    return removeVowel;
   }
 };
 
